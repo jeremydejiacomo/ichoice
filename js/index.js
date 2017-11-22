@@ -13,7 +13,18 @@ $(document).ready(function() {
 	.done(displayShoes)
 	.fail(function(error) {
 		console.log(error);
-	})
+	});
+
+	//Window scroll
+    $("nav a").click(function(e) {
+        var id = $(this).attr('href'); //#home
+
+        $('html, body').animate({
+            scrollTop: $(id).offset().top
+        }, 750);
+
+        e.preventDefault();
+    });
 
 	function displayShoes(response) {
 		var releases = response.releases;
